@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rucker's Restaurant</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        function updateDays() {
+            const month = document.getElementById('reservation-month').value;
+            const daySelect = document.getElementById('reservation-date');
+            let days = 31;
+            if (['April', 'June', 'September', 'November'].includes(month)) {
+                days = 30;
+            } else if (month === 'February') {
+                days = 28;
+            }
+
+            daySelect.innerHTML = '';
+            for (let i = 1; i <= days; i++) {
+                const option = document.createElement('option');
+                option.value = i;
+                option.text = i;
+                daySelect.add(option);
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="contact-info">
+            <span>(602) 789-5672</span>
+            <a href="mailto:staff@ruckers.com">Contact Us</a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="Menu.html">Menu</a></li>
+                <li><a href="About.html">About Us</a></li>
+                <li><a href="Order.html">Order</a></li>
+                <li><a href="gift.html">Gift Cards</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!--This is the main text of this homepage to introduce the customer to the page to see what they entire resturaunt is about and the give a short explination.-->
+    <main>
+        <h1>Rucker's Restaurant</h1>
+        <h2>The best steak in Scottsdale</h2>
+        <p>555 Mountainview Ave.<br>Scottsdale, AZ 85260</p>
+        <p>Welcome to Rucker’s, which has been voted Best Steakhouse in Scottsdale four years running! At Rucker’s, you can enjoy a quality steak, amazing wine, and a quiet atmosphere in a mountain-themed restaurant. Rucker’s has been a tradition in Scottsdale since 1975 and is an amazing place to dine.</p>
+        <div class="container">
+            <div class="image-box">
+                
+            </div>
+
+            <!--this is the onloine reservation form created to easily make reservation witht he days and months lining up correcetly-->
+            <div class="content">
+                <form action="#">
+                    <label for="reservation-month">Select Month:</label>
+                    <select id="reservation-month" name="reservation-month" onchange="updateDays()" required>
+                        <option value="">Month</option>
+                        <option value="January">January</option>
+                        <option value="February">February</option>
+                        <option value="March">March</option>
+                        <option value="April">April</option>
+                        <option value="May">May</option>
+                        <option value="June">June</option>
+                        <option value="July">July</option>
+                        <option value="August">August</option>
+                        <option value="September">September</option>
+                        <option value="October">October</option>
+                        <option value="November">November</option>
+                        <option value="December">December</option>
+                    </select>
+                    <label for="reservation-date">Select Date:</label>
+                    <select id="reservation-date" name="reservation-date" required>
+                        <option value="">Date</option>
+                        ${Array.from({ length: 31 }, (_, i) => `<option value="${i + 1}">${i + 1}</option>`).join('')}
+                    </select>
+                    <label for="reservation-time">Select Time:</label>
+                    <select id="reservation-time" name="reservation-time" required>
+                        <option value="">Time</option>
+                        <option value="11:00 AM">11:00 AM</option>
+                        <option value="12:00 PM">12:00 PM</option>
+                        <option value="01:00 PM">01:00 PM</option>
+                        <option value="02:00 PM">02:00 PM</option>
+                        <option value="03:00 PM">03:00 PM</option>
+                        <option value="04:00 PM">04:00 PM</option>
+                        <option value="05:00 PM">05:00 PM</option>
+                        <option value="06:00 PM">06:00 PM</option>
+                        <option value="07:00 PM">07:00 PM</option>
+                        <option value="08:00 PM">08:00 PM</option>
+                        <option value="09:00 PM">09:00 PM</option>
+                        <option value="10:00 PM">10:00 PM</option>
+                        <option value="12:00 PM">12:00 PM</option>
+                        <option value="01:00 PM">01:00 PM</option>
+                        <option value="02:00 PM">02:00 PM</option>
+                        <option value="03:00 PM">03:00 PM</option>
+                        <option value="04:00 PM">04:00 PM</option>
+                        <option value="05:00 PM">05:00 PM</option>
+                        <option value="06:00 PM">06:00 PM</option>
+                        <option value="07:00 PM">07:00 PM</option>
+                        <option value="08:00 PM">08:00 PM</option>
+                    </select>
+                    <label for="reservation-year">Select Year:</label>
+                    <select id="reservation-year" name="reservation-year" required>
+                        <option value="">Year</option>
+                        <option value="2024">2024</option>
+                        <option value="2025">2025</option>
+                        <option value="2026">2026</option>
+                    </select>
+                    <button type="submit">Make Reservation</button>
+                </form>
+            </div>
+            <div class="image-box2">
+                <!-- Add image content here -->
+            </div>
+        </div>
+    </main>
+</body>
+</html>
